@@ -23,8 +23,14 @@ def get_recipes():
 
 @app.route('/recipes/<int:recipe_id>', methods=['GET'])
 def get_recipe(recipe_id):
+    # https://docs.python.org/3/tutorial/classes.html#iterators
+    # An iterator of the recipe objects:
+    # (recipe for recipe in recipes if recipe['id'] == recipe_id)
+    # The iterator contains only one element because of if recipe['id'] == recipe_id
+    # An iterator of the recipe names
+    # (recipe['name'] for recipe in recipes if recipe['id'] == recipe_id)
     recipe = next((recipe for recipe in recipes if recipe['id'] == recipe_id), None)
-
+    
     if recipe:
         return jsonify(recipe)
 

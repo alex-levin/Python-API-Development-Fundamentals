@@ -1,0 +1,5 @@
+
+python -m venv venv
+source venv/Scriptsa/activate
+python app.py
+curl -v http://localhost:5000/recipes
